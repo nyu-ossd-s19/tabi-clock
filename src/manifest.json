@@ -1,0 +1,23 @@
+{
+
+  "manifest_version": 2,
+  "name": "Tabi-clock",
+  "version": "1.0",
+
+  "description": "Displays analog clock on new tab",
+
+  "icons": {
+    "72": "icons/clock.png"
+  },
+
+  "permissions": [
+    "tabs",
+    "<all_urls>"
+  ],
+
+
+   "chrome_url_overrides": {
+     "newtab": "../clock.html"
+    }
+
+}
