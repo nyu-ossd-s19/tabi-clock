@@ -9,6 +9,13 @@ body{
   height: 100vh;
 }
 
+/* this clock-div definition preventing clock clipping (to a point) but not helping
+with adjustability */
+#clock-div{
+  width: auto;
+  height: auto;
+}
+
 #settings{
   position: fixed;
   top: 50px;
