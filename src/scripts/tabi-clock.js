@@ -21,9 +21,9 @@ function drawFace(ctx, radius) {
   ctx.fillStyle = 'white';
   ctx.fill();
   grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
-  grad.addColorStop(0, '#333');
-  grad.addColorStop(0.5, 'white');
-  grad.addColorStop(1, '#333');
+  grad.addColorStop(0, 'black');
+  grad.addColorStop(0.5, 'black');
+  grad.addColorStop(1, 'black');
   ctx.strokeStyle = grad;
   ctx.lineWidth = radius*0.1;
   ctx.stroke();
@@ -36,7 +36,7 @@ function drawFace(ctx, radius) {
 function drawNumbers(ctx, radius) {
   var ang;
   var num;
-  ctx.font = radius*0.15 + "px arial";
+  ctx.font = radius*0.15 + "px 'Roboto'";
   ctx.textBaseline="middle";
   ctx.textAlign="center";
   for(num = 1; num < 13; num++){
@@ -71,6 +71,12 @@ function drawTime(ctx, radius){
 }
 
 function drawHand(ctx, pos, length, width) {
+    let grad;
+    grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+    grad.addColorStop(0, 'black');
+    grad.addColorStop(0.5, 'black');
+    grad.addColorStop(1, 'black');
+    ctx.strokeStyle = grad;
     ctx.beginPath();
     ctx.lineWidth = width;
     ctx.lineCap = "round";
@@ -94,20 +100,54 @@ function clearScreen(){
 
 }
 
+let i = 0;
+function typeWriteMessage(id, message){
+  if (i < message.length){
+    document.getElementById(id).innerHTML += message.charAt(i);
+    i+=1;
+    setTimeout(function(){
+      typeWriteMessage(id, message);
+    }, 130);
+  }
+}
+
 function determineGreetingMessage(){
   const d = new Date();
   const hour = d.getHours();
   let message = "";
   if (hour >= 4 && hour <= 11){
-    message = "Good Morning!";
+    message = "Good Morning.";
   } else if (hour > 11 && hour < 16){
-    message = "Good Afternoon!";
+    message = "Good Afternoon.";
   } else{
-    message = "Good Night!";
+    message = "Good Night.";
   }
 
-  document.getElementById("greeting").innerHTML = message;
+  typeWriteMessage("greeting", message);
+
+}
+
+function determineStyle(){
+
+  const d = new Date();
+  const hour = d.getHours();
+  let color = "";
+  if (hour >= 4 && hour <= 11){
+    color = "#9acce0";
+  } else if (hour > 11 && hour < 16){
+    color = "#fbcb78";
+  } else{
+    color = "#003366";
+    document.getElementById("greeting").style.color = "#f9f9f9";
+    document.getElementById("settings").style.color = "#f9f9f9";
+  }
+
+  document.body.style.backgroundColor = color;
+
+
 }
 
 
+
 determineGreetingMessage();
+determineStyle();
