@@ -1,0 +1,16 @@
+body{
+  text-align: center;
+}
+
+#canvas{
+  margin:auto;
+  width: auto;
+  height: 100vh;
+}
+
+#settings{
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  font-size: 2em;
+}
