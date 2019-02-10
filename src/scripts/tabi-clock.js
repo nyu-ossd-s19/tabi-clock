@@ -1,9 +1,19 @@
 
 
 //bellow code borrowed from: https://www.w3schools.com/graphics/tryit.asp?filename=trycanvas_clock_start
+// Will - making some edits to clean up formatting
+
 const canvas = document.getElementById("canvas");
+let clockDivWidth = document.getElementById('clock-div').offsetwidth; // trying to determine clock div width to adjust size more dynamically
+console.log(clockDivWidth);
 let ctx = canvas.getContext("2d");
 let radius = canvas.height / 2;
+if(radius > clockDivWidth / 2){
+  console.log("Radius too big!") // DEBUG
+  radius = clockDiv * radius;
+} else {
+  console.log("Radius is within div bounds") // DEBUG
+}
 ctx.translate(radius, radius);
 radius = radius * 0.90
 setInterval(drawClock, 1000);
@@ -25,7 +35,7 @@ function drawFace(ctx, radius) {
   grad.addColorStop(0.5, 'black');
   grad.addColorStop(1, 'black');
   ctx.strokeStyle = grad;
-  ctx.lineWidth = radius*0.1;
+  ctx.lineWidth = radius*0.05;
   ctx.stroke();
   ctx.beginPath();
   ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
