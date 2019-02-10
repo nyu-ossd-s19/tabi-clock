@@ -1,20 +1,5 @@
 
 
-
-
-
-function clearScreen(){
-  document.querySelectorAll('*').forEach(function(node) {
-    if (!node.classList().contains("canvas")){
-      node.style.display = "none";
-    }
-
-  });
-
-}
-
-// makeCanvas();
-
 //bellow code borrowed from: https://www.w3schools.com/graphics/tryit.asp?filename=trycanvas_clock_start
 const canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
@@ -95,3 +80,34 @@ function drawHand(ctx, pos, length, width) {
     ctx.stroke();
     ctx.rotate(-pos);
 }
+
+
+
+//functions created by us
+function clearScreen(){
+  document.querySelectorAll('*').forEach(function(node) {
+    if (!node.classList().contains("canvas")){
+      node.style.display = "none";
+    }
+
+  });
+
+}
+
+function determineGreetingMessage(){
+  const d = new Date();
+  const hour = d.getHours();
+  let message = "";
+  if (hour >= 4 && hour <= 11){
+    message = "Good Morning!";
+  } else if (hour > 11 && hour < 16){
+    message = "Good Afternoon!";
+  } else{
+    message = "Good Night!";
+  }
+
+  document.getElementById("greeting").innerHTML = message;
+}
+
+
+determineGreetingMessage();
