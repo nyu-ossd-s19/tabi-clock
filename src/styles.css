@@ -5,7 +5,7 @@ body{
 
 #canvas{
   animation-name: fadeIn;
-  animation-duration: 5s;
+  animation-duration: 3s;
   margin:auto;
   width: 80vh;
   height: 80vh;
