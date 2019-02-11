@@ -125,10 +125,19 @@ function determineGreetingMessage(){
   let message = "";
   if (hour >= 4 && hour <= 11){
     message = "Good Morning.";
+    var myAudio = new Audio();
+    myAudio.src = "GoodMorning.mp3";
+    myAudio.play();
   } else if (hour > 11 && hour < 16){
     message = "Good Afternoon.";
+    var myAudio = new Audio();
+    myAudio.src = "GoodAfternoon.mp3";
+    myAudio.play();
   } else{
-    message = "Good Evening.";
+    message = "Good Night.";
+    var myAudio = new Audio();
+    myAudio.src = "GoodNight.mp3";
+    myAudio.play();
   }
 
   typeWriteMessage("greeting", message);
