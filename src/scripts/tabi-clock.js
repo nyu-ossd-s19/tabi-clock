@@ -46,7 +46,7 @@ function drawFace(ctx, radius) {
 function drawNumbers(ctx, radius) {
   var ang;
   var num;
-  ctx.font = radius*0.15 + "px 'Roboto'";
+  ctx.font = radius*0.20 + "px 'Lora'";
   ctx.textBaseline="middle";
   ctx.textAlign="center";
   for(num = 1; num < 13; num++){
@@ -71,21 +71,27 @@ function drawTime(ctx, radius){
     hour=(hour*Math.PI/6)+
     (minute*Math.PI/(6*60))+
     (second*Math.PI/(360*60));
-    drawHand(ctx, hour, radius*0.5, radius*0.07);
+    drawHand(ctx, hour, radius*0.5, radius*0.04);
     //minute
     minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
-    drawHand(ctx, minute, radius*0.8, radius*0.07);
+    drawHand(ctx, minute, radius*0.8, radius*0.04);
     // second
     second=(second*Math.PI/30);
-    drawHand(ctx, second, radius*0.9, radius*0.02);
+    drawHand(ctx, second, radius*0.9, radius*0.01);
 }
 
 function drawHand(ctx, pos, length, width) {
     let grad;
     grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
-    grad.addColorStop(0, 'black');
-    grad.addColorStop(0.5, 'black');
-    grad.addColorStop(1, 'black');
+    if(length == radius*0.9){
+      grad.addColorStop(0, 'red');
+      grad.addColorStop(0.5, 'red');
+      grad.addColorStop(1, 'red');
+    } else {
+      grad.addColorStop(0, 'black');
+      grad.addColorStop(0.5, 'black');
+      grad.addColorStop(1, 'black');
+    }
     ctx.strokeStyle = grad;
     ctx.beginPath();
     ctx.lineWidth = width;
@@ -130,7 +136,7 @@ function determineGreetingMessage(){
   } else if (hour > 11 && hour < 16){
     message = "Good Afternoon.";
   } else{
-    message = "Good Night.";
+    message = "Good Evening.";
   }
 
   typeWriteMessage("greeting", message);

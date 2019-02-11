@@ -1,6 +1,6 @@
 body{
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 #canvas{
@@ -19,4 +19,5 @@ body{
 #greeting{
   margin-top: 10vh;
   font-size: 3em;
+  font-family: "Open Sans", sans-serif;
 }
