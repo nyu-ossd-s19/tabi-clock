@@ -5,15 +5,8 @@ body{
 
 #canvas{
   margin:auto;
-  width: auto;
-  height: 100vh;
-}
-
-/* this clock-div definition preventing clock clipping (to a point) but not helping
-with adjustability */
-#clock-div{
-  width: auto;
-  height: auto;
+  width: 80vh;
+  height: 80vh;
 }
 
 #settings{
@@ -24,6 +17,6 @@ with adjustability */
 }
 
 #greeting{
-  margin-top: 45%;
+  margin-top: 10vh;
   font-size: 3em;
 }
