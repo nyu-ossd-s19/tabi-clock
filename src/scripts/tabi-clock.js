@@ -4,16 +4,8 @@
 // Will - making some edits to clean up formatting
 
 const canvas = document.getElementById("canvas");
-// let clockDivWidth = document.getElementById('clock-div').offsetwidth; // trying to determine clock div width to adjust size more dynamically
-// console.log(clockDivWidth);
 let ctx = canvas.getContext("2d");
 let radius = canvas.height / 2;
-// if(radius > clockDivWidth / 2){
-//   console.log("Radius too big!") // DEBUG
-//   radius = clockDiv * radius;
-// } else {
-//   console.log("Radius is within div bounds") // DEBUG
-// }
 ctx.translate(radius, radius);
 radius = radius * 0.90
 setInterval(drawClock, 1000);
