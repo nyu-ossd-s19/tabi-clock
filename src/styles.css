@@ -32,6 +32,10 @@ body{
   font-family: "Open Sans", sans-serif;
 }
 
+#greetingAudio{
+  display: none;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

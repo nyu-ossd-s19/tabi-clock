@@ -125,22 +125,26 @@ function determineGreetingMessage(){
   let message = "";
   if (hour >= 4 && hour <= 11){
     message = "Good Morning.";
-    var myAudio = new Audio();
-    myAudio.src = "GoodMorning.mp3";
-    myAudio.play();
+    document.getElementById("greetingAudio").src = "../audio/GoodMorning.mp3";
+    // var myAudio = new Audio();
+    // myAudio.src = "GoodMorning.mp3";
+    // myAudio.play();
   } else if (hour > 11 && hour < 16){
     message = "Good Afternoon.";
-    var myAudio = new Audio();
-    myAudio.src = "GoodAfternoon.mp3";
-    myAudio.play();
+    document.getElementById("greetingAudio").src = "../audio/GoodAfternoon.mp3";
+    // var myAudio = new Audio();
+    // myAudio.src = "GoodAfternoon.mp3";
+    // myAudio.play();
   } else{
     message = "Good Night.";
-    var myAudio = new Audio();
-    myAudio.src = "GoodNight.mp3";
-    myAudio.play();
+    document.getElementById("greetingAudio").src = "../audio/GoodNight.mp3";
+    // var myAudio = new Audio();
+    // myAudio.src = "GoodNight.mp3";
+    // myAudio.play();
   }
 
   typeWriteMessage("greeting", message);
+  document.getElementById("greetingAudio").play();
 
 }
 
