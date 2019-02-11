@@ -4,6 +4,8 @@ body{
 }
 
 #canvas{
+  animation-name: fadeIn;
+  animation-duration: 5s;
   margin:auto;
   width: 80vh;
   height: 80vh;
@@ -17,7 +19,51 @@ body{
 }
 
 #greeting{
+  -o-animation-name: fadeIn;
+  -o-animation-duration: 3s;
+  -webkit-animation-name: fadeIn;
+  -webkit-animation-duration: 3s;
+  -moz-animation-name: fadeIn;
+  -moz-animation-duration: 3s;
+  animation-name: fadeIn;
+  animation-duration: 3s;
   margin-top: 10vh;
   font-size: 3em;
   font-family: "Open Sans", sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
