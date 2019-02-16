@@ -9,13 +9,16 @@ let radius = canvas.height / 2;
 ctx.translate(radius, radius);
 radius = radius * 0.90
 setInterval(drawClock, 1000);
+let needsFade = true;
 
 function drawClock() {
-  drawFace(ctx, radius);
-  drawNumbers(ctx, radius);
+  ctx.clearRect(radius * -1,radius * -1,canvas.width, canvas.height);
   drawTime(ctx, radius);
 }
 
+/*
+ * Deprecated: draws clock face
+ */
 function drawFace(ctx, radius) {
   var grad;
   ctx.beginPath();
@@ -35,6 +38,9 @@ function drawFace(ctx, radius) {
   ctx.fill();
 }
 
+/*
+ * Deprecated: draws clock numbers
+ */
 function drawNumbers(ctx, radius) {
   var ang;
   var num;
@@ -70,6 +76,10 @@ function drawTime(ctx, radius){
     // second
     second=(second*Math.PI/30);
     drawHand(ctx, second, radius*0.9, radius*0.01);
+    if ( needsFade ) {
+      document.querySelector('#canvas-border').classList.add('show');
+      needsFade = false;
+    }
 }
 
 function drawHand(ctx, pos, length, width) {

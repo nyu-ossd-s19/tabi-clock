@@ -4,15 +4,12 @@ body{
 }
 
 #canvas{
-  animation-name: fadeIn;
-  animation-duration: 3s;
   margin:auto;
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
   top: 0;
-  opaicty: 0;
 }
 
 #canvas-wrapper {
@@ -28,13 +25,33 @@ body{
   margin: 0 auto;
 }
 
-#canvas-sizer {
+#canvas-border {
   position: absolute;
   left: 0;
   top: 0;
   width: 100%;
   height: 0;
   padding-bottom: 100%;
+  background: black;
+  opacity: 0;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+#canvas-sizer {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: calc(100% - 20px);
+  height: 0;
+  padding-bottom: calc(100% - 20px);
+  background: white;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.show {
+  animation: fadeIn 0.6s forwards;
 }
 
 #settings{
@@ -60,6 +77,129 @@ body{
 
 #greetingAudio{
   display: none;
+}
+
+.time-marker {
+  counter-increment: clockTime;
+  position: absolute;
+  left: calc(50% - 0.8rem);
+  top: 5%;
+  width: 1.6rem;
+  height: 45%;
+  text-align: center;
+  transform-origin: center bottom !important;
+  font-family: Lora, serif;
+}
+
+.time-marker > .time-marker {
+  width: 100%;
+  height: 100%;
+}
+
+.time-marker::before {
+  content: counter(clockTime);
+  font-size: 1.6rem;
+  display: inline-block;
+}
+
+.time-marker:nth-of-type(2) {
+  transform: rotate(30deg);
+}
+
+.time-marker:nth-of-type(2)::before {
+  transform: rotate(-30deg);
+}
+
+.time-marker:nth-of-type(3) {
+  transform: rotate(60deg);
+}
+
+.time-marker:nth-of-type(3)::before {
+  transform: rotate(-60deg);
+}
+
+.time-marker:nth-of-type(4) {
+  transform: rotate(90deg);
+}
+
+.time-marker:nth-of-type(4)::before {
+  transform: rotate(-90deg);
+}
+
+.time-marker:nth-of-type(5) {
+  transform: rotate(120deg);
+}
+
+.time-marker:nth-of-type(5)::before {
+  transform: rotate(-120deg);
+}
+
+.time-marker:nth-of-type(6) {
+  transform: rotate(150deg);
+}
+
+.time-marker:nth-of-type(6)::before {
+  transform: rotate(-150deg);
+}
+
+.time-marker:nth-of-type(7) {
+  transform: rotate(180deg);
+}
+
+.time-marker:nth-of-type(7)::before {
+  transform: rotate(-180deg);
+}
+
+.time-marker:nth-of-type(8) {
+  transform: rotate(210deg);
+}
+
+.time-marker:nth-of-type(8)::before {
+  transform: rotate(-210deg);
+}
+
+.time-marker:nth-of-type(9) {
+  transform: rotate(240deg);
+}
+
+.time-marker:nth-of-type(9)::before {
+  transform: rotate(-240deg);
+}
+
+.time-marker:nth-of-type(10) {
+  transform: rotate(270deg);
+}
+
+.time-marker:nth-of-type(10)::before {
+  transform: rotate(-270deg);
+}
+
+.time-marker:nth-of-type(11) {
+  transform: rotate(300deg);
+}
+
+.time-marker:nth-of-type(11)::before {
+  transform: rotate(-300deg);
+}
+
+.time-marker:nth-of-type(12) {
+  transform: rotate(330deg);
+}
+
+.time-marker:nth-of-type(12)::before {
+  transform: rotate(-330deg);
+}
+
+@media screen and (max-width: 767px) {
+  .time-marker::before {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-height: 439px) {
+  .time-marker::before {
+    font-size: 1rem;
+  }
 }
 
 @keyframes fadeIn {
