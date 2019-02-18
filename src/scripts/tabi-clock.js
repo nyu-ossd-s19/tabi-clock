@@ -178,6 +178,11 @@ function determineStyle(){
 
 }
 
+function openSettings(){
+  window.open('file:///tabi-clock/src/settings.html'); 
+  return false;
+}
+
 
 
 determineGreetingMessage();
